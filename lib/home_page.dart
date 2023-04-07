@@ -103,7 +103,9 @@ class _HomePageState extends State<HomePage> {
         msgTextAlign: TextAlign.left,
         progressValueColor: Colors.blue,
         progressType: ProgressType.valuable,
-        completed: Completed(),
+        completed: Completed(
+          completionDelay: 1500,
+        ),
       );
       int bytesWritten = 0;
       int progressValue = 0;
@@ -121,6 +123,7 @@ class _HomePageState extends State<HomePage> {
         videoFile.deleteSync();
       }
       // Fluttertoast.showToast(msg: 'Vedio downloaded successfuly');
+      await Future.delayed(const Duration(milliseconds: 1500));
       setState(() {
         textController.clear();
         isVideoLoaded = false;
